@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Expense Tracker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+  <!-- Chart.js for charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Expense Tracker</h1>
+      <p id="status-msg" class="muted"></p>
+    </header>
+
+    <section class="card" id="budget-card">
+  <div class="head">
+    <h3 class="heading">Your Budget Control Panel</h3>
+  </div>
+
+  <div class="row space">
+    <div>
+      <div class="label">Budget : <span id="budget-amt">0</span></div>
+      <div class="label">Spent : <span id="spent-amt">0</span></div>
+      <div class="label">Savings : <span id="savings-amt">0</span></div>
+    </div>
+
+    <div>
+      <button id="set-budget-btn">Set Budget</button>
+      <button id="set-cat-limit-btn">Set Category Limit</button>
+      <button id="mark-unwanted-btn">Mark Unwanted</button>
+      <button id="suggestions-btn">Get Suggestions</button>
+      <label class="inline">Block Unwanted
+        <input type="checkbox" id="block-mode-toggle">
+      </label>
+    </div>
+  </div>
+</section>
+
+
+    <section class="card" id="add-card">
+      <h3>Add Expense</h3>
+      <form id="add-form">
+        <div class="form-row">
+          <label>Amount (₹)</label><br>
+          <input name="amount" id="amount" required>
+        </div><br>
+        <div class="form-row">
+          <label>Category</label><br>
+          <select id="category" name="category"></select>
+        </div><br>
+        <div class="form-row">
+          <label>Description</label><br>
+          <input name="description" id="description">
+        </div><br>
+        <div class="form-row">
+          <label>Date (YYYY-MM-DD)</label><br>
+          <input name="date" id="date">
+        </div><br>
+        <div class="form-row">
+          <button type="submit">Add Expense</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" id="table-card">
+      <h3>Expenses</h3>
+      <div class="table-wrap">
+        <table id="expenses-table">
+          <thead><tr><th>ID</th><th>Amount</th><th>Category</th><th>Description</th><th>Date</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div><br>
+      <div class="table-actions">
+        <button id="refresh-btn">Refresh</button>
+        <button id="export-xlsx">Export Excel</button>
+        <button id="export-pdf">Export PDF</button>
+      </div>
+    </section>
+
+    <section class="card" id="charts-card">
+      <h3>Reports</h3>
+      <div class="charts-row">
+        <div class="chart-box pie-box">
+          <canvas id="pie-chart"></canvas>
+        </div>
+        <div class="chart-box trend-box">
+          <canvas id="trend-chart"></canvas>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Simple modal area -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" id="modal-close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+</body>
+</html>

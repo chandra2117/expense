@@ -1,0 +1,198 @@
+:root{
+  --bg:#f5f7fb; 
+  --card:#fff; 
+  --accent:#276EF1; 
+  --muted:#666;
+}
+*{
+    box-sizing:border-box
+}
+body{
+    font-family:Segoe UI, Tahoma, Arial, sans-serif; 
+    background-color:#F5F5F5; 
+    margin:0; 
+    padding:20px;
+}
+.container{
+    max-width:1100px; 
+    margin:0 auto;
+}
+header{
+    display: flex;
+    flex-direction: column;   /* stack title + status message */
+    align-items: center;       /* center horizontally */
+    justify-content: center;   /* center vertically */
+    margin-bottom: 12px;
+}
+
+h1{
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+}
+.muted{
+    color:var(--muted); 
+    font-size:13px;
+}
+.card{ 
+    background-color:#FFFFFF; 
+    padding:14px; 
+    border-radius:8px; 
+    box-shadow:0 2px 8px rgba(0,0,0,0.06); 
+    margin-bottom:12px;
+}
+
+.head {
+    margin-bottom: 10px;
+}
+
+.heading {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.row{
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center;
+}
+
+label.inline{
+    margin-left:10px; 
+    font-size:15px;
+}
+
+button{
+    background-color:#4CAF50; 
+    color:#fff; 
+    border:none; 
+    padding:9px 18px; 
+    border-radius:6px; 
+    cursor:pointer;
+    font-size: 15px;
+}
+button:hover{
+    opacity:0.95;
+}
+
+#budget-card .label{
+    font-weight:600; 
+    margin:4px 0;
+}
+
+.form-row{
+    display:flex; 
+    flex-direction:column; 
+    margin-bottom:8px;
+}
+.form-row input, .form-row select{
+    padding:8px; 
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+.table-wrap{
+    overflow:auto;
+}
+table{
+    width:100%; 
+    border-collapse:collapse; 
+    font-size:14px;
+}
+th,td{
+    padding:8px; 
+    border-bottom:1px solid #eee; 
+    text-align:left;
+    font-size: 17px;
+}
+.table-actions{
+    margin-top:8px;
+}
+
+/* Charts row in full flex layout */
+.charts-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Common chart box */
+.chart-box{
+    background: transparent;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pie chart – 40% width */
+.pie-box{
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Trend chart – 60% width */
+.trend-box{
+    flex: 0 0 60%;
+    max-width: 60%;
+    min-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas responsive */
+.pie-box canvas,
+.trend-box canvas{
+    width: 100% !important;
+    height: 360px !important;
+}
+
+
+/* Modal */
+.modal{
+    position:fixed; 
+    inset:0; 
+    background:rgba(0,0,0,0.4); 
+    display:flex; 
+    align-items:center; 
+    justify-content:center;
+}
+.modal.hidden{
+    display:none;
+}
+.modal-content{
+    background:#fff; 
+    padding:16px; 
+    border-radius:8px; 
+    width:90%; 
+    max-width:600px; 
+    position:relative;
+}
+.close{
+    position:absolute; 
+    right:8px; 
+    top:8px; 
+    border:none; 
+    background:transparent; 
+    font-size:18px; 
+    cursor:pointer;
+}
+@media (max-width:900px){
+   .row{
+        flex-direction:column; 
+        align-items:flex-start
+    }
+    .charts-row{
+        flex-direction:column;
+    }
+    .pie-box, .trend-box { width:100%; }
+}
